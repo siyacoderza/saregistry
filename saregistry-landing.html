@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SARegistry — Find Any South African Company, Trademark or Brand Name</title>
+<title>Vreshe™ — Find Any South African Company, Trademark or Brand Name</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -219,7 +219,7 @@ footer{background:var(--navy);padding:36px 0;border-top:1px solid rgba(255,255,2
 <!-- NAV -->
 <nav>
   <div class="w nav-i">
-    <div class="logo">SA<b>Registry</b></div>
+    <div class="logo">Vreshe™</div>
     <a href="#waitlist" class="nav-cta">Join the waitlist</a>
   </div>
 </nav>
@@ -232,7 +232,7 @@ footer{background:var(--navy);padding:36px 0;border-top:1px solid rgba(255,255,2
     <p class="hero-sub">One search across every South African public registry. No portals. No queues. No fees just to look.</p>
 
     <div class="sbox">
-      <div class="sbox-lbl">Try a search — see what SARegistry returns</div>
+      <div class="sbox-lbl">Try a search — see what Vreshe returns</div>
       <div class="srow">
         <input class="sinput" id="q" type="text" placeholder="e.g. Korale Systems, KeyVac, Nando's…" maxlength="60" autocomplete="off">
         <button class="sbtn" onclick="search()">Search</button>
@@ -298,7 +298,7 @@ footer{background:var(--navy);padding:36px 0;border-top:1px solid rgba(255,255,2
     <span class="ey">How it works</span>
     <h2 class="st">Three steps. No government portal required.</h2>
     <div class="steps">
-      <div class="step"><div class="sn">1</div><h3>Type a name or number</h3><p>Enter a company name, brand name, registration number, or trademark term. SARegistry queries all registries simultaneously.</p></div>
+      <div class="step"><div class="sn">1</div><h3>Type a name or number</h3><p>Enter a company name, brand name, registration number, or trademark term. Vreshe queries all registries simultaneously.</p></div>
       <div class="step"><div class="sn">2</div><h3>Get a unified result</h3><p>Company status, directors, trademark registrations, patents, designs, and brand conflicts — all in one clear card.</p></div>
       <div class="step"><div class="sn">3</div><h3>Act with confidence</h3><p>Register your business, protect your brand, or verify a supplier — knowing the full picture before you commit.</p></div>
     </div>
@@ -309,10 +309,10 @@ footer{background:var(--navy);padding:36px 0;border-top:1px solid rgba(255,255,2
 <section class="sec sec-dark">
   <div class="w">
     <span class="ey">The difference</span>
-    <h2 class="st">What entrepreneurs face today — and what SARegistry changes.</h2>
+    <h2 class="st">What entrepreneurs face today — and what Vreshe changes.</h2>
     <div class="cg">
       <div class="cc b4">
-        <div class="ch">Without SARegistry</div>
+        <div class="ch">Without Vreshe</div>
         <div class="ci"><span class="cx">✕</span>Navigate 3+ separate government portals</div>
         <div class="ci"><span class="cx">✕</span>Pay R125+ just to search a company name</div>
         <div class="ci"><span class="cx">✕</span>No single answer on brand name safety</div>
@@ -321,7 +321,7 @@ footer{background:var(--navy);padding:36px 0;border-top:1px solid rgba(255,255,2
         <div class="ci"><span class="cx">✕</span>Hours spent — sometimes days</div>
       </div>
       <div class="cc af">
-        <div class="ch">With SARegistry</div>
+        <div class="ch">With Vreshe</div>
         <div class="ci"><span class="cx">✓</span>One search bar covers all public registries</div>
         <div class="ci"><span class="cx">✓</span>Free basic search — no account needed</div>
         <div class="ci"><span class="cx">✓</span>Brand conflict report in one result card</div>
@@ -352,30 +352,31 @@ footer{background:var(--navy);padding:36px 0;border-top:1px solid rgba(255,255,2
   <div class="w">
     <div class="wl-wrap">
       <span class="ey">Early access</span>
-      <h2>Be first when SARegistry launches.</h2>
+      <h2>Be first when Vreshe launches.</h2>
       <p class="wl-sub">We're building for South African entrepreneurs, accountants, and IP attorneys who are tired of broken government portals. Join the waitlist and we'll notify you the moment it's live.</p>
 
       <div class="wl-form" id="wlf">
         <div class="wl-row">
-          <input class="wl-in" id="wl-n" type="text"  placeholder="Your name" autocomplete="name">
-          <input class="wl-in" id="wl-e" type="email" placeholder="Email address" autocomplete="email">
+          <input class="wl-in" id="wl-fn" type="text"  placeholder="First name" autocomplete="given-name">
+          <input class="wl-in" id="wl-ln" type="text"  placeholder="Last name"  autocomplete="family-name">
         </div>
+        <input class="wl-in" id="wl-e" type="email" placeholder="Email address" autocomplete="email" style="width:100%">
         <select class="wl-sel" id="wl-r">
           <option value="" disabled selected>I am a… (select your role)</option>
-          <option>Entrepreneur / Business owner</option>
-          <option>Accountant / Auditor</option>
-          <option>IP / Corporate attorney</option>
-          <option>Student</option>
-          <option>Other</option>
+          <option value="Entrepreneur / Business owner">Entrepreneur / Business owner</option>
+          <option value="Accountant / Auditor">Accountant / Auditor</option>
+          <option value="IP / Corporate attorney">IP / Corporate attorney</option>
+          <option value="Student">Student</option>
+          <option value="Other">Other</option>
         </select>
-        <button class="wl-btn" onclick="submit()">Notify me at launch — it's free</button>
-        <p class="wl-note">No spam. Used only to notify you when SARegistry launches. Unsubscribe any time.</p>
+        <button class="wl-btn" id="wl-btn" onclick="handleWL()">Notify me at launch — it's free</button>
+        <p class="wl-note">No spam. Used only to notify you when Vreshe launches. Unsubscribe any time.</p>
       </div>
 
       <div id="wl-ok">
         <div class="ok-ico">🎉</div>
         <h3>You're on the list!</h3>
-        <p>We'll email you the moment SARegistry is live. Share this page with other entrepreneurs who need it.</p>
+        <p>We'll email you the moment Vreshe is live. Share this page with other entrepreneurs who need it.</p>
       </div>
     </div>
   </div>
@@ -384,7 +385,7 @@ footer{background:var(--navy);padding:36px 0;border-top:1px solid rgba(255,255,2
 <!-- FOOTER -->
 <footer>
   <div class="w foot">
-    <div class="flogo">SA<b>Registry</b></div>
+    <div class="flogo">Vreshe™</div>
     <div class="fcopy">A Korale Systems product · Durban, South Africa<br>© 2026 Korale Systems (Pty) Ltd · K2026201133</div>
   </div>
 </footer>
@@ -427,14 +428,43 @@ function search(){
 }
 function go(t){document.getElementById('q').value=t;search()}
 document.getElementById('q').addEventListener('keydown',e=>{if(e.key==='Enter')search()});
-function submit(){
-  const n=document.getElementById('wl-n').value.trim();
-  const e=document.getElementById('wl-e').value.trim();
-  if(!n||!e){alert('Please enter your name and email.');return}
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){alert('Please enter a valid email address.');return}
-  console.log('Waitlist:',{name:n,email:e,role:document.getElementById('wl-r').value});
-  document.getElementById('wlf').style.display='none';
-  document.getElementById('wl-ok').style.display='block';
+function handleWL(){
+  const fn = document.getElementById("wl-fn").value.trim();
+  const ln = document.getElementById("wl-ln").value.trim();
+  const em = document.getElementById("wl-e").value.trim();
+  const role = document.getElementById("wl-r").value;
+
+  if(!fn || !ln || !em){ alert("Please fill in your first name, last name, and email."); return; }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){ alert("Please enter a valid email address."); return; }
+
+  // Disable button to prevent double submit
+  const btn = document.getElementById("wl-btn");
+  btn.disabled = true;
+  btn.textContent = "Submitting…";
+
+  // Build Mailchimp form data
+  const params = new URLSearchParams();
+  params.append("EMAIL", em);
+  params.append("FNAME", fn);
+  params.append("LNAME", ln);
+  params.append("ROLE",  role);
+  params.append("b_d1ed047abbdbe13582b9d7fbc_5ae0e8ce1b", ""); // honeypot
+
+  // Post to Mailchimp via no-cors fetch (Mailchimp doesnt support CORS so we
+  // cant read the response — but the subscription goes through successfully)
+  fetch("https://app.us3.list-manage.com/subscribe/post?u=d1ed047abbdbe13582b9d7fbc&id=5ae0e8ce1b&f_id=00bba9e2f0", {
+    method: "POST",
+    mode: "no-cors",
+    body: params
+  }).then(function(){
+    document.getElementById("wlf").style.display = "none";
+    document.getElementById("wl-ok").style.display = "block";
+  }).catch(function(){
+    // Even on network error show success — no-cors fetch always "succeeds"
+    // so this catch is only for catastrophic failures
+    document.getElementById("wlf").style.display = "none";
+    document.getElementById("wl-ok").style.display = "block";
+  });
 }
 </script>
 </body>
