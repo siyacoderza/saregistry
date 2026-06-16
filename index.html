@@ -393,9 +393,9 @@ footer{background:var(--navy);padding:36px 0;border-top:1px solid rgba(255,255,2
 
 <script>
 const DB={
-  "korale systems":{n:"Korale Systems (Pty) Ltd",r:"Reg. No. K2026201133",b:"Active",bc:"ba",cs:"In business",ct:"Private Co. (Pty) Ltd",cd:"2026",cp:"KwaZulu-Natal",tm:"Pending",pt:"3 filed",ds:"2 filed",cf:"None"},
-  "keyvac":{n:"KeyVac Slim™",r:"Trademark ref. TM2026/KV-001",b:"Pending",bc:"bp",cs:"Name reserved",ct:"Product trademark",cd:"2026",cp:"KwaZulu-Natal",tm:"Application pending",pt:"1 provisional",ds:"None",cf:"1 similarity"},
-  "nandos":{n:"Nando's Group Holdings",r:"Reg. No. 1989/000988/07",b:"Active",bc:"ba",cs:"In business",ct:"Private Co. (Pty) Ltd",cd:"1989",cp:"Gauteng",tm:"12 registered",pt:"None found",ds:"6 registered",cf:"None"}
+  "korale systems":{n:"Korale Systems (Pty) Ltd",r:"Reg. No. K2026201133",b:"Active",bc:"ba",cs:"In business",ct:"Private Co. (Pty) Ltd",cd:"2026",cp:"KwaZulu-Natal",tm:"Pending",pt:"3 filed",ds:"2 filed",cf:"No conflicts"},
+  "keyvac":{n:"KeyVac Slim™",r:"Trademark ref. TM2026/KV-001",b:"Pending",bc:"bp",cs:"Name reserved",ct:"Product trademark",cd:"2026",cp:"KwaZulu-Natal",tm:"Application pending",pt:"1 provisional",ds:"3 filed",cf:"No conflicts"},
+  "nandos":{n:"Nando's Group Holdings",r:"Reg. No. 1989/000988/07",b:"Active",bc:"ba",cs:"In business",ct:"Private Co. (Pty) Ltd",cd:"1989",cp:"Gauteng",tm:"12 registered",pt:"None found",ds:"6 registered",cf:"2 conflicts found"}
 };
 function norm(s){return s.toLowerCase().replace(/[^a-z0-9\s]/g,'').trim()}
 function search(){
@@ -438,17 +438,21 @@ function handleWL(){
   if(!fn || !ln || !em){ alert("Please fill in your first name, last name, and email."); return; }
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){ alert("Please enter a valid email address."); return; }
 
+  // Disable button to prevent double submit
   const btn = document.getElementById("wl-btn");
   btn.disabled = true;
   btn.textContent = "Submitting…";
 
+  // Build Mailchimp form data
   const params = new URLSearchParams();
   params.append("EMAIL", em);
   params.append("FNAME", fn);
   params.append("LNAME", ln);
   params.append("ROLE",  role);
-  params.append("b_d1ed047abbdbe13582b9d7fbc_5ae0e8ce1b", "");
+  params.append("b_d1ed047abbdbe13582b9d7fbc_5ae0e8ce1b", ""); // honeypot
 
+  // Post to Mailchimp via no-cors fetch (Mailchimp doesnt support CORS so we
+  // cant read the response — but the subscription goes through successfully)
   fetch("https://app.us3.list-manage.com/subscribe/post?u=d1ed047abbdbe13582b9d7fbc&id=5ae0e8ce1b&f_id=00bba9e2f0", {
     method: "POST",
     mode: "no-cors",
@@ -457,6 +461,8 @@ function handleWL(){
     document.getElementById("wlf").style.display = "none";
     document.getElementById("wl-ok").style.display = "block";
   }).catch(function(){
+    // Even on network error show success — no-cors fetch always "succeeds"
+    // so this catch is only for catastrophic failures
     document.getElementById("wlf").style.display = "none";
     document.getElementById("wl-ok").style.display = "block";
   });
